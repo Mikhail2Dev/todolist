@@ -7,7 +7,11 @@ export const TodoForm = ({addTodo}) => {
         // prevent default action
         e.preventDefault();
         // add todo
-        addTodo(value);
+        if (value.trim() !== '') {
+            addTodo(value);
+        } else {
+            alert('Заметка не может быть пустой. Введите текст заметки.')
+        }
         // clear form after submission
         setValue('');
     };
